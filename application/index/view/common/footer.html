@@ -1,0 +1,45 @@
+	</div>
+</div>
+{load href="/static/js/bootstrap.js" /}
+{load href="/static/fileinput/js/fileinput.min.js" /}
+{load href="/static/fileinput/js/locales/zh.js" /}
+{load href="/static/wangfu/js/wangEditor.min.js"}
+
+<script>
+initFileInput("file-0","{:url('Index/insert')}");
+//初始化fileinput控件（第一次初始化）
+function initFileInput(ctrlName, uploadUrl) {    
+    var control = $('#' + ctrlName); 
+
+    control.fileinput({
+        language: 'zh', //设置语言
+        uploadUrl: uploadUrl, //上传的地址
+        allowedFileExtensions : ['jpg', 'png','gif'],//接收的文件后缀
+        showUpload: false, //是否显示上传按钮
+        showCaption: false,//是否显示标题
+        browseClass: "btn btn-primary", //按钮样式
+        previewFileIcon: "<i class='glyphicon glyphicon-king'></i>", 
+        maxFileCount: 4,
+        dropZoneEnabled: true,
+
+        initialPreviewConfig: {
+            caption: ctrlName,
+            width : '120px',
+            url : uploadUrl,
+            key : 101,
+            success: function(){
+
+            }
+        }
+    });
+}
+
+//监听事件
+$("file-0").on("fileuploaded",function(event, data, previewId, index){
+
+});
+
+
+</script>
+</body>
+</html>

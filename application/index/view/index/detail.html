@@ -1,0 +1,28 @@
+{extend name="common:base" /}
+{block name="body"}
+<div class="row">
+    <div class="col-md-8  col-sm-8">
+        <div class="page-header">
+            <h2>{$title}</h2>
+        </div>
+
+        <div class="row">
+            <div class="col-md-4">
+                <a href="#"><img src="/{$artres.img_title}" class="img-rounded" style="width: 230px;height: 150px"></a>
+            </div>
+            <div class="col-md-8">
+                <h4><a href="{:url('Index/detail?artid='.$vo['id'])}" class="lead">{$artres.title}</a></h4>
+                <p>发布者:<mark>{$Think.session.username}</mark></p>
+                <p>时间:{$artres.create_time}</p>
+                <p>阅读量:{$artres.pv}</p>
+                <div class="lead">{$artres.content}<?php if(strlen($vo['content'])>20){echo '...<a href="#">[全文]</a>';}?></div>
+                <hr>
+            </div>
+        </div>
+    </div>
+    {/block}
+
+
+
+
+
